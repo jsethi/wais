@@ -1,0 +1,35 @@
+[project]
+name = "wais"
+version = "1.0.0"
+description = "Web Archival & Ingestion System"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "typer>=0.12,<1.0",
+    "pydantic>=2.0,<3.0",
+    "httpx>=0.27,<1.0",
+    "requests>=2.31,<3.0",
+    "aiosqlite>=0.20,<1.0",
+    "beautifulsoup4>=4.12,<5.0",
+    "lxml>=5.0,<7.0",
+    "playwright>=1.40,<2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0,<9.0",
+    "pytest-asyncio>=0.23,<1.0",
+    "vcrpy>=6.0,<9.0",
+    "pytest-vcr>=1.0,<2.0",
+    "ruff>=0.3,<1.0",
+]
+
+[project.scripts]
+wais = "core.main:app"
+
+[build-system]
+requires = ["flit_core>=3.9"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.module]
+name = "core"
